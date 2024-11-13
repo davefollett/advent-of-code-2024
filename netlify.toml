@@ -1,0 +1,14 @@
+[functions]
+  directory = "functions"
+  external_node_modules = ["express"]
+  node_bundler = "esbuild"
+[[redirects]]
+  force = true
+  from = "/day/*"
+  status = 200
+  to = "/.netlify/functions/day/:splat"
+[[redirects]]
+  force = true
+  from = "/"
+  status = 200
+  to = "/.netlify/functions/home/"

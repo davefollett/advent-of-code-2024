@@ -1,6 +1,6 @@
 import express, { Router } from "express";
 import serverless from "serverless-http";
-import { sumNumbers } from '../src/utils/array.js';
+import { sumNumbers } from '#utils/array.js';
 
 const api = express();
 

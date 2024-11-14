@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "imports": {
-    "#lib/*": "./lib/*",
-    "#utils/*": "./lib/utils/*"
+    "#lib/*": "./functions/lib/*",
+    "#utils/*": "./functions/lib/utils/*"
   }
 }

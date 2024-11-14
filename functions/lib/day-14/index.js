@@ -40,7 +40,7 @@ export function part2(filename) {
 }
 
 export function run() {
-  const filename = './day-14/input.txt';
+  const filename = './functions/lib/day-14/input.txt';
   const results = new Result('Day 14');
 
   let start = performance.now();

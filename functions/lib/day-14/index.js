@@ -157,8 +157,8 @@ export function run() {
 
   results.part2.answer = part1(input);
   results.part2.answer = part1(input);
-  // results.part2.answer = part1(input);
-  // results.part2.answer = part1(input);
+  results.part2.answer = part1(input);
+  results.part2.answer = part1(input);
 
   return results;
 }

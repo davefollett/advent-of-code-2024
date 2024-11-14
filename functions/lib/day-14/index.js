@@ -155,5 +155,10 @@ export function run() {
   results.part2.answer = part1(input);
   results.part2.time = (performance.now() - start).toFixed(2);
 
+  results.part2.answer = part1(input);
+  results.part2.answer = part1(input);
+  results.part2.answer = part1(input);
+  results.part2.answer = part1(input);
+  
   return results;
 }

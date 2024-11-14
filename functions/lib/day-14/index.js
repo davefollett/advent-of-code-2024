@@ -152,7 +152,7 @@ export function run() {
   results.part1.time = (performance.now() - start).toFixed(2);
 
   start = performance.now();
-  results.part2.answer = part2(input);
+  results.part2.answer = part1(input);
   results.part2.time = (performance.now() - start).toFixed(2);
 
   return results;

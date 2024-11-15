@@ -1,6 +1,8 @@
 {
   "name": "advent-of-code-2024",
   "version": "0.0.1",
+  "author": "Dave Follett",
+  "license": "ISC",
   "description": "",
   "main": "\"\"",
   "dependencies": {
@@ -10,10 +12,8 @@
     "serverless-http": "^3.2.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "netlify dev"
   },
-  "author": "",
-  "license": "ISC",
   "imports": {
     "#lib/*": "./functions/lib/*",
     "#utils/*": "./functions/lib/utils/*"

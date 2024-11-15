@@ -3,7 +3,7 @@ export default function template(body, sidebar) {
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Dave Follett's 2023 Advent of Code</title>
+    <title>Dave Follett's 2024 Advent of Code</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 
@@ -50,6 +50,22 @@ export default function template(body, sidebar) {
         flex: 1;
       }
 
+      .homepage-body {
+        display: flex;
+        justify-content: left;
+        align-items: end;
+        gap: 1rem;
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: left;
+        align-items: center;
+      }
+
+      .footer-icons {
+        margin-left: auto;
+      }
     </style>
   </head>
 
@@ -57,7 +73,7 @@ export default function template(body, sidebar) {
     <div class="grid">
         <header>
           <div class="cell nes-container is-dark">
-            <h1>2023 Advent of Code</h1>
+            <h1>2024 Advent of Code</h1>
           </div>
         </header>
       
@@ -74,8 +90,16 @@ export default function template(body, sidebar) {
         </main>
       
         <footer>
-          <div class="cell nes-container is-dark">
-            <p>&copy; 2023 Dave Follett</p>
+          <div class="footer-row cell nes-container is-dark">
+            <p>&copy; 2024 Dave Follett</p>
+            <div class="footer-icons">
+              <a class="link" href="https://github.com/davefollett/" target="_blank">
+                <i class="nes-icon github is-medium"></i>
+              </a>
+              <a class="link" href="https://www.linkedin.com/in/dfollett/" target="_blank">
+                <i class="nes-icon linkedin is-medium"></i>
+              </a>
+            </div>
           </div>
         </footer>
       </div>

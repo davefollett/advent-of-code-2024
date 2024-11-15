@@ -38,12 +38,6 @@ api.get("/day/14", (req, res) => {
   res.send(template(formatResult(results), sidebar));
 });
 
-api.get("/day/07", (req, res) => {
-  const numbers = [2, 3, 4]
-  const numberSum = sumNumbers(numbers)
-  return res.send(`DAY 07 - ${numberSum}`)
-});
-
 api.all('*', (req, res) => {
   return res.send("4040404040404040")
 });

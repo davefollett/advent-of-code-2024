@@ -4,6 +4,11 @@
   node_bundler = "esbuild"
 [[redirects]]
   force = true
+  from = "/public/*"
+  status = 200
+  to = "/public/:splat"
+[[redirects]]
+  force = true
   from = "/*"
   status = 200
   to = "/.netlify/functions/home/"

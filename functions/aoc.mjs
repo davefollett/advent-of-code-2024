@@ -1,11 +1,12 @@
 import express from "express";
 import serverless from "serverless-http";
-import { sumNumbers } from '#utils/array.js';
 import template from '#utils/template.js';
+import { run as day01Run } from '#lib/day-01/index.js';
 import { run as day14Run } from '#lib/day-14/index.js';
 
 const sidebar = `
   <a class="link" href="/">Home</a>
+  <a class="link" href="/day/01">Day 01</a>
   <a class="link" href="/day/14">Day 14</a>
 `;
 
@@ -31,6 +32,11 @@ api.get("/", (req, res) => {
   </section>`
 
   return res.send(template(body, sidebar));
+});
+
+api.get("/day/01", (req, res) => {
+  const results = day01Run();
+  res.send(template(formatResult(results), sidebar));
 });
 
 api.get("/day/14", (req, res) => {

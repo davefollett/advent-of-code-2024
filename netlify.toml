@@ -12,3 +12,5 @@
   from = "/*"
   status = 200
   to = "/.netlify/functions/aoc/"
+[build.environment]
+  NODE_VERSION = "22.11.0"

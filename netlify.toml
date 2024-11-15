@@ -4,11 +4,6 @@
   node_bundler = "esbuild"
 [[redirects]]
   force = true
-  from = "/day/*"
-  status = 200
-  to = "/.netlify/functions/day/:splat"
-[[redirects]]
-  force = true
-  from = "/"
+  from = "/*"
   status = 200
   to = "/.netlify/functions/home/"

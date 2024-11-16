@@ -1,4 +1,3 @@
-import fs from 'fs';
 import os from 'os';
 
 export default class Grid {
@@ -27,13 +26,9 @@ export default class Grid {
     return Math.abs(locationA.row - locationB.row) + Math.abs(locationA.col - locationB.col);
   }
 
-  constructor({ gridString, gridFilename }) {
+  constructor({ gridString }) {
     if (gridString) {
       this.#gridRaw = gridString;
-    }
-
-    if (gridFilename) {
-      this.#gridRaw = fs.readFileSync(gridFilename, 'utf-8');
     }
 
     this.#grid = this.#gridRaw

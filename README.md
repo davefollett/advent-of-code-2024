@@ -31,3 +31,21 @@ npm ci
 npm run rev
 ```
 Visit http://localhost:8888/
+
+# Project Structure
+
+```
+/
+├── public/
+│   └── dave-pixel.png
+├── functions/
+│   └── lib/
+│       ├── day-##/
+│       ├── utils/
+│       └── aoc.mjs
+├── .gitignore
+├── netlify.toml
+├── package.json
+├── package-lock.json
+├── README.md
+```

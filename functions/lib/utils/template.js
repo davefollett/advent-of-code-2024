@@ -9,6 +9,9 @@ export default function template(body, sidebar, title) {
     <meta property="og:title" content="${title}">
     <meta property="og:description" content="Welcome to Dave Follett's 2024 Advent of Code Solutions!">
     <meta property="og:image" content="https://aoc2024.davefollett.dev/public/dave-pixel.png">
+    <meta property="og:image:type" content="image/png" /> 
+    <meta property="og:image:width" content="175" /> 
+    <meta property="og:image:height" content="175" />
 
     <title>${title}</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />

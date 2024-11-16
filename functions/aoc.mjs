@@ -22,6 +22,7 @@ function formatResult(result) {
 const api = express();
 
 api.get("/", (req, res) => {
+  const title = "Dave Follett's 2024 Advent of Code.";
   const body = `
   <section class="homepage-body message -left">
     <img src="public/dave-pixel.png">
@@ -31,17 +32,19 @@ api.get("/", (req, res) => {
     </div>
   </section>`
 
-  return res.send(template(body, sidebar));
+  return res.send(template(body, sidebar, title));
 });
 
 api.get("/day/01", (req, res) => {
+  const title = "AOC 2024 - Day 01";
   const results = day01Run();
-  res.send(template(formatResult(results), sidebar));
+  res.send(template(formatResult(results), sidebar, title));
 });
 
 api.get("/day/14", (req, res) => {
+  const title = "AOC 2024 - Day 14";
   const results = day14Run();
-  res.send(template(formatResult(results), sidebar));
+  res.send(template(formatResult(results), sidebar, title));
 });
 
 api.all('*', (req, res) => {

@@ -1,13 +1,16 @@
-export default function template(body, sidebar) {
+export default function template(body, sidebar, title) {
   return `
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
   <head>
     <meta charset="utf-8">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aoc2024.davefollett.dev/">
+    <meta property="og:title" content="${title}">
+    <meta property="og:description" content="Welcome to Dave Follett's 2024 Advent of Code Solutions!">
     <meta property="og:image" content="https://aoc2024.davefollett.dev/public/dave-pixel.png">
 
-    <title>Dave Follett's 2024 Advent of Code</title>
+    <title>${title}</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 

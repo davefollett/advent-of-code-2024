@@ -16,7 +16,7 @@ export default function template(body, sidebar) {
       
       .grid {
         display: grid;
-        grid-template-columns: 200px auto;
+        grid-template-columns: 225px auto;
         grid-gap: 1em;
       }
 
@@ -33,7 +33,7 @@ export default function template(body, sidebar) {
 
       body {
         margin: 0 auto;
-        max-width: 56em;
+        max-width: 64rem;
         padding: 1em 0;
       }
 
@@ -75,6 +75,11 @@ export default function template(body, sidebar) {
           <div class="cell nes-container is-dark">
             <h1>2024 Advent of Code</h1>
           </div>
+          <div class="nes-container" style="background-color: white;">
+            <a class="link" href="https://github.com/davefollett/advent-of-code-2024" target="_blank" title="Fork me on GitHub">
+              <i id="octocat" class="nes-octocat"></i>
+            </a>
+          </div>
         </header>
       
         <aside>
@@ -104,6 +109,17 @@ export default function template(body, sidebar) {
         </footer>
       </div>
   </body>
+  <script>
+      const element = document.getElementById("octocat");
+
+      element.addEventListener("mouseenter", () => {
+        element.classList.add("animate");
+      });
+
+      element.addEventListener("mouseleave", () => {
+        element.classList.remove("animate");
+      });
+    </script>
 <html>
 `;
 }

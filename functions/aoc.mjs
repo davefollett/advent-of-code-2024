@@ -5,9 +5,9 @@ import { run as day01Run } from '#lib/day-01/index.js';
 import { run as day14Run } from '#lib/day-14/index.js';
 
 const sidebar = `
-  <a class="link" href="/">Home</a>
-  <a class="link" href="/day/01">Day 01</a>
-  <a class="link" href="/day/14">Day 14</a>
+  <a class="link" href="/"><button type="button" class="nes-btn is-primary">Home</button></a>
+  <a class="link" href="/day/01"><button type="button" class="nes-btn is-success">Day 01</button></a>
+  <a class="link" href="/day/14"><button type="button" class="nes-btn is-success">Day 14</button></a>
 `;
 
 function formatResult(result) {
@@ -45,7 +45,16 @@ api.get("/day/14", (req, res) => {
 });
 
 api.all('*', (req, res) => {
-  return res.send("4040404040404040")
+  const body = `
+  <section class="homepage-body message -left">
+    <img style="transform: rotate(180deg);" src="public/dave-pixel.png">
+    <div class="nes-balloon from-left is-dark">
+      <h1>Oops, this page does not exist!</h1>
+      <p>Click each link in the sidebar to run each day's solution.</p>
+    </div>
+  </section>`
+
+  return res.send(template(body, sidebar));
 });
 
 export const handler = serverless(api);

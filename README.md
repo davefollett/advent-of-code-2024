@@ -12,6 +12,8 @@
 
 # Dave Follett's 2024 Advent of Code Solutions.
 
+Live site 👉 https://aoc2024.davefollett.dev/
+
 # 🏗️ Tech Stack
 
 - [Node 22](https://github.com/nodejs/node/releases/tag/v22.11.0)

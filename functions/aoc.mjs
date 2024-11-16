@@ -47,7 +47,7 @@ api.get("/day/14", (req, res) => {
 api.all('*', (req, res) => {
   const body = `
   <section class="homepage-body message -left">
-    <img style="transform: rotate(180deg);" src="public/dave-pixel.png">
+    <img style="transform: rotate(180deg);" src="/public/dave-pixel.png">
     <div class="nes-balloon from-left is-dark">
       <h1>Oops, this page does not exist!</h1>
       <p>Click each link in the sidebar to run each day's solution.</p>

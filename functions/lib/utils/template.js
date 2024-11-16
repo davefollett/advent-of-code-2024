@@ -5,7 +5,7 @@ export default function template(body, sidebar) {
   <head>
     <meta charset="utf-8">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://cosmic-longma-060ee5.netlify.app/public/dave-pixel.png">
+    <meta property="og:image" content="https://aoc2024.davefollett.dev/public/dave-pixel.png">
 
     <title>Dave Follett's 2024 Advent of Code</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />

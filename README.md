@@ -36,13 +36,23 @@ Visit http://localhost:8888/
 
 ```
 /
-├── public/
-│   └── dave-pixel.png
 ├── functions/
 │   └── lib/
 │       ├── day-##/
 │       ├── utils/
+│       │   ├── array.js
+│       │   ├── array.test.js
+│       │   ├── file-parser.js
+│       │   ├── grid.js
+│       │   ├── grid.test.js
+│       │   ├── math.js
+│       │   ├── pipe.js
+│       │   ├── result.js
+│       │   ├── result.test.js
+│       │   └── template.js
 │       └── aoc.mjs
+├── public/
+│   └── dave-pixel.png
 ├── .gitignore
 ├── netlify.toml
 ├── package.json

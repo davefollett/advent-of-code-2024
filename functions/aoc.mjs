@@ -25,7 +25,7 @@ api.get("/", (req, res) => {
   const title = "Dave Follett's 2024 Advent of Code.";
   const body = `
   <section class="homepage-body message -left">
-    <img src="public/dave-pixel.png">
+    <img src="public/dave-pixel.png" width="175px" height="175px" alt="Pixelated image of Dave Follett">
     <div class="nes-balloon from-left is-dark">
       <h1>Welcome to Dave Follett's Advent of Code Solutions.</h1>
       <p>Click each link in the sidebar to run each day's solution.</p>
@@ -50,7 +50,7 @@ api.get("/day/14", (req, res) => {
 api.all('*', (req, res) => {
   const body = `
   <section class="homepage-body message -left">
-    <img style="transform: rotate(180deg);" src="/public/dave-pixel.png">
+    <img style="transform: rotate(180deg);" src="/public/dave-pixel.png" alt="Pixelated image of Dave Follett">
     <div class="nes-balloon from-left is-dark">
       <h1>Oops, this page does not exist!</h1>
       <p>Click each link in the sidebar to run each day's solution.</p>

@@ -4,6 +4,8 @@ export default function template(body, sidebar, title) {
 <html lang="en-us">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://aoc2024.davefollett.dev/">
     <meta property="og:title" content="${title}">
@@ -14,6 +16,9 @@ export default function template(body, sidebar, title) {
     <meta property="og:image:height" content="175" />
 
     <title>${title}</title>
+    <meta name="title" content="${title}">
+    <meta name="description" content="Welcome to Dave Follett's 2024 Advent of Code Solutions!">
+
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 
@@ -108,14 +113,14 @@ export default function template(body, sidebar, title) {
           <div class="footer-row cell nes-container is-dark">
             <p>&copy; 2024 Dave Follett</p>
             <div class="footer-icons">
-              <a class="link" href="https://github.com/davefollett/" target="_blank">
+              <a class="link" href="https://github.com/davefollett/" target="_blank" title="Dave Follett's GitHub profile">
                 <i class="nes-icon github is-medium"></i>
               </a>
-              <a class="link" href="https://www.linkedin.com/in/dfollett/" target="_blank">
+              <a class="link" href="https://www.linkedin.com/in/dfollett/" target="_blank" title="Dave Follett's LinkedIn profile">
                 <i class="nes-icon linkedin is-medium"></i>
               </a>
               <a class="link" href="https://bsky.app/profile/davefollett.dev" target="_blank">
-                <img style="vertical-align: top;" src="/public/bluesky.png" width="50px" height="50px">
+                <img style="vertical-align: top;" src="/public/bluesky.png" width="50px" height="50px" alt="bluesky profile icon">
               </a>
             </div>
           </div>

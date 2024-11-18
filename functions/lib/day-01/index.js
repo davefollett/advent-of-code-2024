@@ -1,7 +1,7 @@
 // https://adventofcode.com/2023/day/1
 
 import { performance } from 'node:perf_hooks';
-import { input } from '#lib/day-01/inputs.js'
+import { input } from '#lib/day-01/inputs.js';
 import Result from '#utils/result.js';
 import fileParser from '#utils/file-parser.js';
 import { sumNumbers } from '#utils/array.js';

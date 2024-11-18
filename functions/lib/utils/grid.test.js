@@ -6,7 +6,6 @@ import {
 } from 'vitest';
 import Grid from './grid.js';
 
-/* eslint-disable-next-line no-multi-str */
 const gridString = `0123456789
 9012345678
 8901234567
@@ -18,7 +17,6 @@ ABABABABAB
 8787S78787
 3453453450`;
 
-/* eslint-disable-next-line no-multi-str */
 const expectedRawForInsertRowsAndCols = `01=23=4=56789
 ++=++=+=+++++
 90=12=3=45678
@@ -31,8 +29,6 @@ ZX=CV=B=NM<>?
 AB=AB=A=BABAB
 87=87=S=78787
 34=53=4=53450`;
-
-const gridFilename = './utils/files/grid.txt';
 
 describe('@/utils/grid.js', () => {
   let gridFromString;
@@ -152,9 +148,7 @@ describe('@/utils/grid.js', () => {
 
     describe('insertRow()', () => {
       test.skip('inserts 1 row', () => {
-        /* eslint-disable-next-line prefer-destructuring */
         const numRows = gridFromString.numRows;
-        /* eslint-disable-next-line prefer-destructuring */
         const numCols = gridFromString.numCols;
         const insertIndex = 1;
         const rowToInsert = Array(numCols).fill('+');
@@ -167,9 +161,7 @@ describe('@/utils/grid.js', () => {
 
     describe('insertCol()', () => {
       test.skip('inserts 1 col', () => {
-        /* eslint-disable-next-line prefer-destructuring */
         const numRows = gridFromString.numRows;
-        /* eslint-disable-next-line prefer-destructuring */
         const numCols = gridFromString.numCols;
         const insertIndex = 1;
         const colToInsert = Array(numRows).fill('+');

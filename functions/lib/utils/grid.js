@@ -59,46 +59,46 @@ export default class Grid {
   #determineNextLocations(firstDirection, secondDirection) {
     const result = {};
     switch (firstDirection) {
-      case 'up':
-        result.firstLocation = { row: this.#currentLocation.row - 1, col: this.#currentLocation.col };
-        if (secondDirection === 'left') {
-          result.secondLocation = { row: this.#numRows - 1, col: this.#currentLocation.cols - 1 };
-        } else if (secondDirection === 'right') {
-          result.secondLocation = { row: this.#numRows - 1, col: this.#currentLocation.cols + 1 };
-        } else {
-          result.secondLocation = { row: -1, col: -1 };
-        }
-        break;
-      case 'down':
-        result.firstLocation = { row: this.#currentLocation.row + 1, col: this.#currentLocation.col };
-        if (secondDirection === 'left') {
-          result.secondLocation = { row: 0, col: this.#currentLocation.cols - 1 };
-        } else if (secondDirection === 'right') {
-          result.secondLocation = { row: 0, col: this.#currentLocation.cols + 1 };
-        } else {
-          result.secondLocation = { row: -1, col: -1 };
-        }
-        break;
-      case 'left':
-        result.firstLocation = { row: this.#currentLocation.row, col: this.#currentLocation.col - 1 };
-        if (secondDirection === 'down') {
-          result.secondLocation = { row: this.#currentLocation.row + 1, col: this.#numCols - 1 };
-        } else if (secondDirection === 'up') {
-          result.secondLocation = { row: this.#currentLocation.row - 1, col: this.#numCols - 1 };
-        } else {
-          result.secondLocation = { row: -1, col: -1 };
-        }
-        break;
-      case 'right':
-        result.firstLocation = { row: this.#currentLocation.row, col: this.#currentLocation.col + 1 };
-        if (secondDirection === 'down') {
-          result.secondLocation = { row: this.#currentLocation.row + 1, col: 0 };
-        } else if (secondDirection === 'up') {
-          result.secondLocation = { row: this.#currentLocation.row - 1, col: 0 };
-        } else {
-          result.secondLocation = { row: -1, col: -1 };
-        }
-        break;
+    case 'up':
+      result.firstLocation = { row: this.#currentLocation.row - 1, col: this.#currentLocation.col };
+      if (secondDirection === 'left') {
+        result.secondLocation = { row: this.#numRows - 1, col: this.#currentLocation.cols - 1 };
+      } else if (secondDirection === 'right') {
+        result.secondLocation = { row: this.#numRows - 1, col: this.#currentLocation.cols + 1 };
+      } else {
+        result.secondLocation = { row: -1, col: -1 };
+      }
+      break;
+    case 'down':
+      result.firstLocation = { row: this.#currentLocation.row + 1, col: this.#currentLocation.col };
+      if (secondDirection === 'left') {
+        result.secondLocation = { row: 0, col: this.#currentLocation.cols - 1 };
+      } else if (secondDirection === 'right') {
+        result.secondLocation = { row: 0, col: this.#currentLocation.cols + 1 };
+      } else {
+        result.secondLocation = { row: -1, col: -1 };
+      }
+      break;
+    case 'left':
+      result.firstLocation = { row: this.#currentLocation.row, col: this.#currentLocation.col - 1 };
+      if (secondDirection === 'down') {
+        result.secondLocation = { row: this.#currentLocation.row + 1, col: this.#numCols - 1 };
+      } else if (secondDirection === 'up') {
+        result.secondLocation = { row: this.#currentLocation.row - 1, col: this.#numCols - 1 };
+      } else {
+        result.secondLocation = { row: -1, col: -1 };
+      }
+      break;
+    case 'right':
+      result.firstLocation = { row: this.#currentLocation.row, col: this.#currentLocation.col + 1 };
+      if (secondDirection === 'down') {
+        result.secondLocation = { row: this.#currentLocation.row + 1, col: 0 };
+      } else if (secondDirection === 'up') {
+        result.secondLocation = { row: this.#currentLocation.row - 1, col: 0 };
+      } else {
+        result.secondLocation = { row: -1, col: -1 };
+      }
+      break;
     }
     return result;
   }

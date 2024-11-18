@@ -34,11 +34,11 @@ export function part1(filename) {
   return result;
 }
 
-export function part2(filename) {
-  const grid = new Grid({ gridString: filename });
+// export function part2(filename) {
+//   const grid = new Grid({ gridString: filename });
 
-  return 0;
-}
+//   return 0;
+// }
 
 export function run() {
   const results = new Result('Day 14');
@@ -48,7 +48,7 @@ export function run() {
   results.part1.time = (performance.now() - start).toFixed(2);
 
   start = performance.now();
-  results.part2.answer = part2(input);
+  results.part2.answer = 0; // part2(input);
   results.part2.time = (performance.now() - start).toFixed(2);
 
   return results;

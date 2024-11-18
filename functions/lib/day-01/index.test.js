@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 import { part1, part2 } from '#lib/day-01/index.js';
-import { input, testInput1, testInput2 } from '#lib/day-01/inputs.js'
+import { input, testInput1, testInput2 } from '#lib/day-01/inputs.js';
 
 describe('@/day-01/index.js', () => {
   describe('part1()', () => {

@@ -14,7 +14,7 @@
 
 Live site 👉 https://aoc2024.davefollett.dev/
 
-# 🏗️ Tech Stack
+## 🏗️ Tech Stack
 
 - [Node 22](https://github.com/nodejs/node/releases/tag/v22.11.0)
 - [ExpressJS](https://expressjs.com/)
@@ -23,7 +23,7 @@ Live site 👉 https://aoc2024.davefollett.dev/
 - [Vitest](https://vitest.dev/)
 - [Eslint](https://eslint.org/)
 
-# 🏎️ Setup
+## 🏎️ Setup
 
 ```
 nvm use 22
@@ -32,7 +32,7 @@ npm run rev
 ```
 Visit http://localhost:8888/
 
-# Project Structure
+## 🏛️ Project Structure
 
 ```
 /
@@ -57,5 +57,5 @@ Visit http://localhost:8888/
 ├── netlify.toml
 ├── package.json
 ├── package-lock.json
-├── README.md
+└── README.md
 ```

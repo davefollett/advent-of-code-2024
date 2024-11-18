@@ -52,8 +52,11 @@ Visit http://localhost:8888/
 │       │   └── template.js
 │       └── aoc.mjs
 ├── public/
+│   └── bluesky.png
 │   └── dave-pixel.png
+│   └── robots.png
 ├── .gitignore
+├── eslint.config.mjs
 ├── netlify.toml
 ├── package.json
 ├── package-lock.json

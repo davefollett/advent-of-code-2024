@@ -114,6 +114,9 @@ export default function template(body, sidebar, title) {
               <a class="link" href="https://www.linkedin.com/in/dfollett/" target="_blank">
                 <i class="nes-icon linkedin is-medium"></i>
               </a>
+              <a class="link" href="https://bsky.app/profile/davefollett.dev" target="_blank">
+                <img style="vertical-align: top;" src="/public/bluesky.png" width="50px" height="50px">
+              </a>
             </div>
           </div>
         </footer>

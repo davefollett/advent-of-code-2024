@@ -13,10 +13,10 @@ const sidebar = `
 function formatResult(result) {
   return `
     <h1>${result.title}</h1>
-    <ui>
+    <ul>
       <li>Part 1: ${result.part1.answer} (${result.part1.time} ms)</li>
       <li>Part 2: ${result.part2.answer} (${result.part2.time} ms)</li>
-    <ui>`;
+    </ul>`;
 }
 
 const api = express();

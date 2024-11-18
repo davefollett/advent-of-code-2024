@@ -105,8 +105,8 @@ export default function template(body, sidebar, title) {
       
         <main>
           <div class="cell nes-container is-dark">
-              <p>${body}</p>
-            </div>
+            ${body}
+          </div>
         </main>
       
         <footer>

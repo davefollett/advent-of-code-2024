@@ -14,7 +14,7 @@ function formatResult(result) {
   return `
     <h1>${result.title}</h1>
     <ul>
-      <li>Part 1: ${result.part1.answer} (${result.part1.time} ms)</li>
+      <li>Part 1: ${result.part1.answer} (${result.part1.time} ms)</i></li>
       <li>Part 2: ${result.part2.answer} (${result.part2.time} ms)</li>
     </ul>`;
 }
@@ -27,10 +27,17 @@ api.get("/", (req, res) => {
   <section class="homepage-body message -left">
     <img src="public/dave-pixel.png" width="175px" height="175px" alt="Pixelated image of Dave Follett">
     <div class="nes-balloon from-left is-dark">
-      <h1>Welcome to Dave Follett's Advent of Code Solutions.</h1>
+      <h1>Welcome to Dave Follett's <a href="https://adventofcode.com/" target="_blank" title="Advent of Code website">Advent of Code</a> Solutions.</h1>
       <p>Click each link in the sidebar to run each day's solution.</p>
     </div>
   </section>`
+
+  // TODO: possibility add stars to the home page, after section
+  // <div>
+  //   <i class="nes-icon is-medium star"></i>
+  //   <i class="nes-icon is-medium star"></i>
+  //   <i class="nes-icon is-medium star"></i>
+  // </div>
 
   return res.send(template(body, sidebar, title));
 });

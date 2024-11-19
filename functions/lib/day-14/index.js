@@ -41,7 +41,7 @@ export function part1(filename) {
 // }
 
 export function run() {
-  const results = new Result('Day 14');
+  const results = new Result('Day 14 - <i class="nes-icon is-medium star"></i>');
 
   let start = performance.now();
   results.part1.answer = part1(input);

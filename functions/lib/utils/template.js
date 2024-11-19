@@ -19,6 +19,7 @@ export default function template(body, sidebar, title) {
     <meta name="title" content="${title}">
     <meta name="description" content="Welcome to Dave Follett's 2024 Advent of Code Solutions!">
 
+    <link rel="icon" type="image/png" href="/public/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet" />
     <link href="https://unpkg.com/nes.css@latest/css/nes.min.css" rel="stylesheet" />
 

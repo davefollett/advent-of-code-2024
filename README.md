@@ -31,34 +31,3 @@ npm ci
 npm run rev
 ```
 Visit http://localhost:8888/
-
-## 🏛️ Project Structure
-
-```
-/
-├── functions/
-│   └── lib/
-│       ├── day-##/
-│       ├── utils/
-│       │   ├── array.js
-│       │   ├── array.test.js
-│       │   ├── file-parser.js
-│       │   ├── grid.js
-│       │   ├── grid.test.js
-│       │   ├── math.js
-│       │   ├── pipe.js
-│       │   ├── result.js
-│       │   ├── result.test.js
-│       │   └── template.js
-│       └── aoc.mjs
-├── public/
-│   └── bluesky.png
-│   └── dave-pixel.png
-│   └── robots.png
-├── .gitignore
-├── eslint.config.mjs
-├── netlify.toml
-├── package.json
-├── package-lock.json
-└── README.md
-```

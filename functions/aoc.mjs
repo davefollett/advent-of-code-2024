@@ -28,14 +28,11 @@ api.get("/", (req, res) => {
       <h1>Welcome to Dave Follett's <a href="https://adventofcode.com/" target="_blank" title="Advent of Code website">Advent of Code</a> Solutions.</h1>
       <p>Click each link in the sidebar to run each day's solution.</p>
     </div>
-  </section>`
-
-  // TODO: possibility add stars to the home page, after section
-  // <div>
-  //   <i class="nes-icon is-medium star"></i>
-  //   <i class="nes-icon is-medium star"></i>
-  //   <i class="nes-icon is-medium star"></i>
-  // </div>
+  </section>
+  <div style="margin-top: 1rem;">
+    <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
+  </div>`
 
   return res.send(template(body, sidebar, title));
 });

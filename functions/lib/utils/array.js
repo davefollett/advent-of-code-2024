@@ -41,6 +41,13 @@ export function sumInstances(arr) {
   return result;
 }
 
+/**
+ * This function counts the number of times a value is found in an array.
+ *
+ * @param {Array} arr The array to search within.
+ * @param {any} valueToCount The value to look for in the array.
+ * @returns An object using the array strings as keys and the number of occurrences as values.
+ */
 export function countInstancesFound(arr, valueToCount) {
   const result = arr.reduce((accu, item) => {
     if (item === valueToCount) {

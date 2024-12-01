@@ -12,8 +12,8 @@ function parseToColumns(lines) {
 
   lines.forEach((item) => {
     const columns = item.split('   ');
-    left.push(columns[0]);
-    right.push(columns[1]);
+    left.push(parseInt(columns[0], 10));
+    right.push(parseInt(columns[1], 10));
   });
   return { left, right };
 }

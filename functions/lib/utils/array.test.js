@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { chunk, sumInstances } from './array.js';
+import { chunk, sumInstances, countInstancesFound } from './array.js';
 
 describe('@/utils/array.js', () => {
   describe('chunk()', () => {
@@ -35,6 +35,18 @@ describe('@/utils/array.js', () => {
       ${['dave', 'poppy', 'poppy', 'poppy', 'elle']} | ${{ dave: 1, poppy: 3, elle: 1 }}
     `('sumInstances()', ({ arr, expected }) => {
       expect(sumInstances(arr)).toStrictEqual(expected);
+    });
+  });
+
+  describe('countInstancesFound()', () => {
+    test.each`
+      arr                                            | valueToCount | expected
+      ${['dave', 'poppy', 'dave', 'dave', 'elle']}   | ${'dave'}    | ${3}
+      ${['dave', 'elle', 'poppy', 'elle', 'elle']}   | ${'poppy'}   | ${1}
+      ${['elle', 'elle', 'elle', 'elle', 'elle']}    | ${'elle'}    | ${5}
+      ${['dave', 'poppy', 'dave', 'dave', 'elle']}   | ${'bill'}    | ${0}
+    `('countInstancesFound()', ({ arr, valueToCount, expected }) => {
+      expect(countInstancesFound(arr, valueToCount)).toStrictEqual(expected);
     });
   });
 });

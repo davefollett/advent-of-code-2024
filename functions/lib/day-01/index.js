@@ -1,4 +1,4 @@
-// https://adventofcode.com/2023/day/1
+// https://adventofcode.com/2024/day/1
 
 import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-01/inputs.js';
@@ -7,62 +7,21 @@ import fileParser from '#utils/file-parser.js';
 import { sumNumbers } from '#utils/array.js';
 
 function lineParserP1(line) {
-  const numbers = line.replaceAll(/[a-zA-z]/gi, '');
-  return parseInt(`${numbers.at(0)}${numbers.at(-1)}`, 10);
-}
-
-function toDigit(number) {
-  const mapping = {
-    one: '1',
-    two: '2',
-    three: '3',
-    four: '4',
-    five: '5',
-    six: '6',
-    seven: '7',
-    eight: '8',
-    nine: '9',
-    eno: '1',
-    owt: '2',
-    eerht: '3',
-    ruof: '4',
-    evif: '5',
-    xis: '6',
-    neves: '7',
-    thgie: '8',
-    enin: '9',
-    1: '1',
-    2: '2',
-    3: '3',
-    4: '4',
-    5: '5',
-    6: '6',
-    7: '7',
-    8: '8',
-    9: '9',
-  };
-  return mapping[number];
+  return line;
 }
 
 function lineParserP2(line) {
-  let firstNumber = line.match(/one|two|three|four|five|six|seven|eight|nine|1|2|3|4|5|6|7|8|9/gi)[0];
-  firstNumber = toDigit(firstNumber);
-
-  const reversedLine = line.split('').reverse().join('');
-  let lastNumber = reversedLine.match(/eno|owt|eerht|ruof|evif|xis|neves|thgie|enin|1|2|3|4|5|6|7|8|9/gi)[0];
-  lastNumber = toDigit(lastNumber);
-
-  return parseInt(`${firstNumber}${lastNumber}`, 10);
+  return line;
 }
 
 export function part1(inputStr) {
   const lines = fileParser(inputStr, lineParserP1);
-  return sumNumbers(lines);
+  return lines.length;
 }
 
 export function part2(inputStr) {
   const lines = fileParser(inputStr, lineParserP2);
-  return sumNumbers(lines);
+  return lines.length;
 }
 
 export function run() {

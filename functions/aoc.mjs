@@ -2,12 +2,10 @@ import express from "express";
 import serverless from "serverless-http";
 import template from '#utils/template.js';
 import { run as day01Run } from '#lib/day-01/index.js';
-import { run as day14Run } from '#lib/day-14/index.js';
 
 const sidebar = `
   <a class="link" href="/"><button type="button" class="nes-btn is-primary">Home</button></a>
   <a class="link" href="/day/01"><button type="button" class="nes-btn is-success">Day 01</button></a>
-  <a class="link" href="/day/14"><button type="button" class="nes-btn is-success">Day 14</button></a>
 `;
 
 function formatResult(result) {
@@ -45,12 +43,6 @@ api.get("/", (req, res) => {
 api.get("/day/01", (req, res) => {
   const title = "AOC 2024 - Day 01";
   const results = day01Run();
-  res.send(template(formatResult(results), sidebar, title));
-});
-
-api.get("/day/14", (req, res) => {
-  const title = "AOC 2024 - Day 14";
-  const results = day14Run();
   res.send(template(formatResult(results), sidebar, title));
 });
 

@@ -4,24 +4,46 @@ import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-01/inputs.js';
 import Result from '#utils/result.js';
 import fileParser from '#utils/file-parser.js';
-import { sumNumbers } from '#utils/array.js';
+import { sumNumbers, sortNumbersAscending, countInstancesFound } from '#utils/array.js';
 
-function lineParserP1(line) {
-  return line;
-}
+function parseToColumns(lines) {
+  const left = [];
+  const right = [];
 
-function lineParserP2(line) {
-  return line;
+  lines.forEach((item) => {
+    const columns = item.split('   ');
+    left.push(columns[0]);
+    right.push(columns[1]);
+  });
+  return { left, right };
 }
 
 export function part1(inputStr) {
-  const lines = fileParser(inputStr, lineParserP1);
-  return lines.length;
+  const lines = fileParser(inputStr);
+  let { left, right } = parseToColumns(lines);
+  left = sortNumbersAscending(left);
+  right = sortNumbersAscending(right);
+
+  const distances = [];
+  left.forEach((item, index) => {
+    distances.push(Math.abs(item - right[index]));
+  });
+
+  return sumNumbers(distances);
 }
 
 export function part2(inputStr) {
-  const lines = fileParser(inputStr, lineParserP2);
-  return lines.length;
+  const lines = fileParser(inputStr);
+  let { left, right } = parseToColumns(lines);
+
+  const similarities = [];
+
+  left.forEach((item) => {
+    const similarity = countInstancesFound(right, item);
+    similarities.push(item * similarity);
+  });
+
+  return sumNumbers(similarities);
 }
 
 export function run() {

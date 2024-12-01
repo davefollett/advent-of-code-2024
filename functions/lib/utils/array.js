@@ -40,3 +40,13 @@ export function sumInstances(arr) {
   }, {});
   return result;
 }
+
+export function countInstancesFound(arr, valueToCount) {
+  const result = arr.reduce((accu, item) => {
+    if (item === valueToCount) {
+      accu += 1;
+    }
+    return accu;
+  }, 0);
+  return result;
+}

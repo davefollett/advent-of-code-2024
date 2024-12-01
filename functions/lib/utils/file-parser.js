@@ -26,3 +26,11 @@ export function fileParserToObject(input, lineParser) {
 export function fileParserToString(input) {
   return input;
 }
+
+export function inputParserToObject(input, obj, lineParserFunc) {
+  input
+    .split(os.EOL)
+    .forEach((line) => {
+      lineParserFunc(obj, line);
+    });
+}

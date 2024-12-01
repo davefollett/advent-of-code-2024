@@ -3,43 +3,46 @@
 import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-01/inputs.js';
 import Result from '#utils/result.js';
-import fileParser from '#utils/file-parser.js';
+import { inputParserToObject }  from '#utils/file-parser.js';
 import { sumNumbers, sortNumbersAscending, countInstancesFound } from '#utils/array.js';
 
-function parseToColumns(lines) {
-  const left = [];
-  const right = [];
-
-  lines.forEach((item) => {
-    const columns = item.split('   ');
-    left.push(parseInt(columns[0], 10));
-    right.push(parseInt(columns[1], 10));
-  });
-  return { left, right };
+function lineParser(obj, line) {
+  const columns = line.split('   ');
+  obj.left.push(parseInt(columns[0], 10));
+  obj.right.push(parseInt(columns[1], 10));
 }
 
 export function part1(inputStr) {
-  const lines = fileParser(inputStr);
-  let { left, right } = parseToColumns(lines);
-  left = sortNumbersAscending(left);
-  right = sortNumbersAscending(right);
+  const lists = {
+    left: [],
+    right: []
+  };
+
+  inputParserToObject(inputStr, lists, lineParser);
+
+  lists.left = sortNumbersAscending(lists.left);
+  lists.right = sortNumbersAscending(lists.right);
 
   const distances = [];
-  left.forEach((item, index) => {
-    distances.push(Math.abs(item - right[index]));
+  lists.left.forEach((item, index) => {
+    distances.push(Math.abs(item - lists.right[index]));
   });
 
   return sumNumbers(distances);
 }
 
 export function part2(inputStr) {
-  const lines = fileParser(inputStr);
-  let { left, right } = parseToColumns(lines);
+  const lists = {
+    left: [],
+    right: []
+  };
+
+  inputParserToObject(inputStr, lists, lineParser);
 
   const similarities = [];
 
-  left.forEach((item) => {
-    const similarity = countInstancesFound(right, item);
+  lists.left.forEach((item) => {
+    const similarity = countInstancesFound(lists.right, item);
     similarities.push(item * similarity);
   });
 

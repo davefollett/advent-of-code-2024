@@ -3,16 +3,16 @@
 import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-02/inputs.js';
 import Result from '#utils/result.js';
-import fileParser from '#utils/file-parser.js';
+import { inputParser } from '#lib/utils/input-parser.js';
 
 export function part1(inputStr) {
-  const lines = fileParser(inputStr);
+  const lines = inputParser(inputStr);
 
   return 0;
 }
 
 export function part2(inputStr) {
-  const lines = fileParser(inputStr);
+  const lines = inputParser(inputStr);
   
   return 0;
 }

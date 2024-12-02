@@ -3,7 +3,7 @@
 import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-01/inputs.js';
 import Result from '#utils/result.js';
-import { inputParserToObject }  from '#utils/file-parser.js';
+import { inputParserToObject } from '#lib/utils/input-parser.js';
 import { sumNumbers, sortNumbersAscending, countInstancesFound } from '#utils/array.js';
 
 function lineParser(obj, line) {

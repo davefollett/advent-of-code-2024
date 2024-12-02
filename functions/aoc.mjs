@@ -34,6 +34,8 @@ api.get("/", (req, res) => {
   <div style="margin-top: 1rem;">
     <i class="nes-icon is-medium star"></i>
     <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
   </div>`
 
   return res.send(template(body, sidebar, title));

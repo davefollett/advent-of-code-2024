@@ -4,17 +4,99 @@ import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-02/inputs.js';
 import Result from '#utils/result.js';
 import { inputParser } from '#lib/utils/input-parser.js';
+import { sumNumbers } from '#utils/array.js';
 
-export function part1(inputStr) {
-  const lines = inputParser(inputStr);
+function determineDirection(levelOne, levelTwo) {
+  let direction = 'increasing';
 
+  if (levelOne === levelTwo) {
+    direction = 'none';
+  } else if (levelOne - levelTwo < 0) {
+    direction = 'decreasing';
+  }
+
+  return direction;
+}
+
+function isSafe(direction, levelOne, levelTwo) {
+  if (direction !== determineDirection(levelOne, levelTwo)) {
+    return 0;
+  }
+
+  if (Math.abs(levelOne - levelTwo) > 3) {
+    return 0;
+  }
+
+  return 1;
+}
+
+function lineParser1(line) {
+  const report = line
+    .split(' ')
+    .map((level) => parseInt(level, 10));
+
+  return isReportSafe(report);
+}
+
+function isReportSafe(report) {
+  // console.log(report)
+  // let result = 1;
+  const direction = determineDirection(report[0], report[1]);
+  if (direction === 'none') {
+    // console.log('unsafe')
+    return 0;
+  }
+
+  for (const [index, level] of report.entries()) {
+    // do not process the last element.
+    if (index < report.length - 1) {
+      if (!isSafe(direction, level, report[index + 1])) {
+        // console.log('unsafe')
+        return 0;
+      }
+    }
+  }
+  // console.log('safe')
+  return 1;
+}
+
+
+function lineParser2(line) {
+  // let result = 0; // 0 = unsafe, 1 = safe
+  const originalReport = line
+    .split(' ')
+    .map((level) => parseInt(level, 10));
+
+  let report = [...originalReport];
+  let index = 0;
+
+  // for (const [index, level] of originalReport.entries()) {
+  while (index <= originalReport.length) {
+    if (isReportSafe(report)) {
+      // console.log('---')
+      return 1;
+    }
+
+    report = [...originalReport];
+    report.splice(index, 1);
+    index += 1;
+  }
+
+  // console.log('---')
   return 0;
 }
 
+export function part1(inputStr) {
+  const reports = inputParser(inputStr, lineParser1);
+
+  return sumNumbers(reports);
+}
+
 export function part2(inputStr) {
-  const lines = inputParser(inputStr);
+  const reports = inputParser(inputStr, lineParser2);
+  // console.log(reports)
   
-  return 0;
+  return sumNumbers(reports);
 }
 
 export function run() {

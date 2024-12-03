@@ -1,4 +1,6 @@
 // https://adventofcode.com/2024/day/3
+import path from 'path';
+import fs from 'fs';
 
 import { performance } from 'node:perf_hooks';
 import { input } from '#lib/day-03/inputs.js';
@@ -115,14 +117,22 @@ export function run() {
   const results = new Result('Day 03 - <i class="nes-icon is-medium star"></i><i class="nes-icon is-medium star"></i>');
   const inputFilename = './functions/lib/day-03/input.txt';
 
+  console.log(path.resolve(__dirname));
+
   let start = performance.now();
   // results.part1.answer = part1(input);
-  results.part1.answer = part1FromFile(inputFilename);
+  results.part1.answer = path.resolve(__dirname);//part1FromFile(inputFilename);
   results.part1.time = (performance.now() - start).toFixed(2);
+
+  let fileList = ""
+  fs.readdirSync(path.resolve(__dirname + "/lib/day-03/")).forEach(file => {
+    fileList += ` ${file}`
+  });
+
 
   start = performance.now();
   // results.part2.answer = part2(input);
-  results.part2.answer = part2FromFile(inputFilename);
+  results.part2.answer = fileList;//part2FromFile(inputFilename);
   results.part2.time = (performance.now() - start).toFixed(2);
 
   return results;

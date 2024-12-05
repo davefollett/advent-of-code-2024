@@ -69,7 +69,7 @@ export function run() {
   const inputFilename = __dirname + '/lib/day-03/input.txt';
 
   let start = performance.now();
-  results.part1.answer = part1(inputFilename);
+  results.part1.answer = 0;//part1(inputFilename);
   results.part1.time = (performance.now() - start).toFixed(2);
 
   start = performance.now();

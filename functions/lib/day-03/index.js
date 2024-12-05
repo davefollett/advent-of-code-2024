@@ -7,14 +7,28 @@ import { sumNumbers } from '#utils/array.js';
 
 let mode = 'do';
 
+function multiply(leftCommaRight) {
+  const left = leftCommaRight.split(',')[0];
+  const right = leftCommaRight.split(',')[1];
+  return left * right;
+}
+
+
+function compute(arr) {
+  const result = arr.reduce((accu, item) => {
+    accu += multiply(item)
+    return accu;
+  }, 0);
+
+  return result;
+}
+
 function lineParser1(line) {
-  const regexp = /mul\([0-9]*,[0-9]*\)/g;
-  const match = line.match(regexp);
+  const regexp = /mul\(([0-9]*,[0-9]*)\)/g;
+  const match = line.matchAll(regexp);
 
   const result = match.reduce((accu, item) => {
-    const left = item.split(',')[0].slice('mul('.length);
-    const right = item.split(',')[1].slice(0, -1);
-    accu += left * right;
+    accu += multiply(item[1])
     return accu;
   }, 0);
 
@@ -27,35 +41,26 @@ export function part1(filename) {
   return sumNumbers(lines);
 }
 
-function compute(arr) {
-  const result = arr.reduce((accu, item) => {
-    const left = item.split(',')[0].slice('mul('.length);
-    const right = item.split(',')[1].slice(0, -1);
-    accu += left * right;
-    return accu;
-  }, 0);
-
-  return result;
-}
-
 function lineParser2(line) {
-  const regexp = /mul\([0-9]*,[0-9]*\)|do\(\)|don't\(\)/g;
-  const match = line.match(regexp);
+  const regexp = /mul\(([0-9]*,[0-9]*)\)|do\(\)|don't\(\)/g;
+  const match = line.matchAll(regexp);
 
-  const arr = match.filter((item) => {
-    if (item.startsWith('do(')) {
-      mode = 'do';
+  const arr = match
+    .filter((item) => {
+      if (item[0].startsWith('do(')) {
+        mode = 'do';
+        return false;
+      }
+      if (item[0].startsWith('don')) {
+        mode = "dont";
+        return false;
+      }
+      if (item[0].startsWith('mul') && mode === 'do') {
+        return true;
+      }
       return false;
-    }
-    if (item.startsWith('don')) {
-      mode = "dont";
-      return false;
-    }
-    if (item.startsWith('mul') && mode === 'do') {
-      return true;
-    }
-    return false;
-  });
+    })
+    .map((item) => item[1]);
 
   return compute(arr);
 }

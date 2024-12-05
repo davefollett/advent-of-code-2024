@@ -38,6 +38,8 @@ api.get("/", (req, res) => {
     <i class="nes-icon is-medium star"></i>
     <i class="nes-icon is-medium star"></i>
     <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
   </div>`
 
   return res.send(template(body, sidebar, title));

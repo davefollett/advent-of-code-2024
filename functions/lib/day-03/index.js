@@ -13,10 +13,9 @@ function multiply(leftCommaRight) {
   return left * right;
 }
 
-
 function compute(arr) {
   const result = arr.reduce((accu, item) => {
-    accu += multiply(item)
+    accu += multiply(item[1])
     return accu;
   }, 0);
 
@@ -27,17 +26,11 @@ function lineParser1(line) {
   const regexp = /mul\(([0-9]*,[0-9]*)\)/g;
   const match = line.matchAll(regexp);
 
-  const result = match.reduce((accu, item) => {
-    accu += multiply(item[1])
-    return accu;
-  }, 0);
-
-  return result;
+  return compute(match)
 }
 
 export function part1(filename) {
   const lines = fileParser(filename, lineParser1);
-  console.log(lines)
   return sumNumbers(lines);
 }
 
@@ -59,8 +52,7 @@ function lineParser2(line) {
         return true;
       }
       return false;
-    })
-    .map((item) => item[1]);
+    });
 
   return compute(arr);
 }
@@ -68,7 +60,7 @@ function lineParser2(line) {
 export function part2(filename) {
   mode = 'do';
   const lines = fileParser(filename, lineParser2);
-  mode = 'do';
+  mode = 'do'; // if this isn't set back to 'do' only the first unit test will pass
   return sumNumbers(lines);
 }
 

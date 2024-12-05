@@ -26,7 +26,7 @@ function lineParser1(line) {
   const regexp = /mul\(([0-9]*,[0-9]*)\)/g;
   const match = line.matchAll(regexp);
 
-  return compute(match)
+  return compute(Array.from(match));
 }
 
 export function part1(filename) {
@@ -38,7 +38,7 @@ function lineParser2(line) {
   const regexp = /mul\(([0-9]*,[0-9]*)\)|do\(\)|don't\(\)/g;
   const match = line.matchAll(regexp);
 
-  const arr = match
+  const arr = Array.from(match)
     .filter((item) => {
       if (item[0].startsWith('do(')) {
         mode = 'do';
@@ -69,7 +69,7 @@ export function run() {
   const inputFilename = __dirname + '/lib/day-03/input.txt';
 
   let start = performance.now();
-  results.part1.answer = 0;//part1(inputFilename);
+  results.part1.answer = part1(inputFilename);
   results.part1.time = (performance.now() - start).toFixed(2);
 
   start = performance.now();

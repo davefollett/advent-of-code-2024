@@ -2,7 +2,7 @@
 
 import { performance } from 'node:perf_hooks';
 import Result from '#utils/result.js';
-import fileParser from '#lib/utils/file-parser.js';
+import { fileParser } from '#lib/utils/file-parser.js';
 import { sumNumbers } from '#utils/array.js';
 
 let mode = 'do';

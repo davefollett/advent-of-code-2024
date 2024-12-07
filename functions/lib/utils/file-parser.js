@@ -1,28 +1,15 @@
 import fs from 'fs';
-import os from 'os';
 
-function defaultLineParser(line) { return line; }
+import { inputParser, inputParserToObject } from '#lib/utils/input-parser.js';
 
-export default function fileParser(filename, lineParser = defaultLineParser) {
-  const results = fs.readFileSync(filename, 'utf-8')
-    .split(os.EOL)
-    .map((line) => lineParser(line));
-
-  return results;
-}
-
-export function fileParserToObject(filename, lineParser) {
-  const results = {};
-  fs.readFileSync(filename, 'utf-8')
-    .split(os.EOL)
-    .forEach((line) => {
-      const { key, value } = lineParser(line);
-      results[key] = value;
-    });
-
-  return results;
-}
-
-export function fileParserToString(filename) {
+export function toString(filename) {
   return fs.readFileSync(filename, 'utf-8');
+}
+
+export function fileParser(filename, lineParserFunc) {
+  return inputParser(toString(filename), lineParserFunc);
+}
+
+export function fileParserToObject(input, inOutObject, lineParserFunc) {
+  inputParserToObject(toString(filename), inOutObject, lineParserFunc);
 }

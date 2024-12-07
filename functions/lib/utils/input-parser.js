@@ -2,10 +2,10 @@ import os from 'os';
 
 function defaultLineParser(line) { return line; }
 
-export function inputParser(input, lineParser = defaultLineParser) {
+export function inputParser(input, lineParserFunc = defaultLineParser) {
   const results = input
     .split(os.EOL)
-    .map((line) => lineParser(line));
+    .map((line) => lineParserFunc(line));
 
   return results;
 }

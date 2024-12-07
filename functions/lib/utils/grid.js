@@ -11,6 +11,8 @@ export default class Grid {
 
   #currentLocation;
 
+  #currentOrientation;
+
   #validDirections = ['up', 'down', 'left', 'right' ];
 
   static equal(a, b) {
@@ -38,6 +40,7 @@ export default class Grid {
     this.#numRows = this.#grid.length;
     this.#numCols = this.#grid[0].length;
     this.#currentLocation = { row: 0, col: 0 };
+    this.#currentOrientation = 'up';
   }
 
   #resetRaw() {
@@ -113,6 +116,10 @@ export default class Grid {
 
   get currentLocation() {
     return this.#currentLocation;
+  }
+
+  get currentOrientation() {
+    return this.#currentOrientation;
   }
 
   get raw() {
@@ -212,6 +219,42 @@ export default class Grid {
     return this.moveTo({ row: this.#currentLocation.row, col: this.#currentLocation.col + 1 });
   }
 
+  moveForward() {
+    let result = null;
+    switch (this.#currentOrientation) {
+    case 'up':
+      result = this.moveUp();
+      break;
+    case 'down':
+      result = this.moveDown();
+      break;
+    case 'left':
+      result = this.moveLeft();
+      break;
+    case 'right':
+      result = this.moveRight();
+      break;
+    }
+    return result;
+  }
+
+  turnRight() {
+    switch (this.#currentOrientation) {
+    case 'up':
+      this.#currentOrientation = 'right';
+      break;
+    case 'down':
+      this.#currentOrientation = 'left';
+      break;
+    case 'left':
+      this.#currentOrientation = 'up';
+      break;
+    case 'right':
+      this.#currentOrientation = 'down';
+      break;
+    }
+  }
+
   moveNext(firstDirection, secondDirection) {
     if (!this.#validDirections.includes(firstDirection)) { return null; }
     if (!this.#validDirections.includes(secondDirection)) { return null; }
@@ -247,6 +290,25 @@ export default class Grid {
     return { location, value: this.at(location) };
   }
 
+  peekForward() {
+    let result = null;
+    switch (this.#currentOrientation) {
+    case 'up':
+      result = this.peekUp();
+      break;
+    case 'down':
+      result = this.peekDown();
+      break;
+    case 'left':
+      result = this.peekLeft();
+      break;
+    case 'right':
+      result = this.peekRight();
+      break;
+    }
+    return result;
+  }
+
   insertRow({ index, value }) {
     // insert a copy of the value array otherwise its inserting a reference
     this.#grid.splice(index, 0, [...value]);
@@ -264,5 +326,9 @@ export default class Grid {
 
   print() {
     console.log(this.raw + '\n');
+  }
+
+  set currentOrientation(orientation) {
+    this.#currentOrientation = orientation;
   }
 }

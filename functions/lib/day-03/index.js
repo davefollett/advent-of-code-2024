@@ -15,7 +15,7 @@ function multiply(leftCommaRight) {
 
 function compute(arr) {
   const result = arr.reduce((accu, item) => {
-    accu += multiply(item[1])
+    accu += multiply(item[1]);
     return accu;
   }, 0);
 

@@ -4,12 +4,14 @@ import template from '#utils/template.js';
 import { run as day01Run } from '#lib/day-01/index.js';
 import { run as day02Run } from '#lib/day-02/index.js';
 import { run as day03Run } from '#lib/day-03/index.js';
+import { run as day06Run } from '#lib/day-06/index.js';
 
 const sidebar = `
   <a class="link" href="/"><button type="button" class="nes-btn is-primary">Home</button></a>
   <a class="link" href="/day/01"><button type="button" class="nes-btn is-success">Day 01</button></a>
   <a class="link" href="/day/02"><button type="button" class="nes-btn is-success">Day 02</button></a>
   <a class="link" href="/day/03"><button type="button" class="nes-btn is-success">Day 03</button></a>
+  <a class="link" href="/day/06"><button type="button" class="nes-btn is-success">Day 06</button></a>
 `;
 
 function formatResult(result) {
@@ -40,6 +42,7 @@ api.get("/", (req, res) => {
     <i class="nes-icon is-medium star"></i>
     <i class="nes-icon is-medium star"></i>
     <i class="nes-icon is-medium star"></i>
+    <i class="nes-icon is-medium star"></i>
   </div>`
 
   return res.send(template(body, sidebar, title));
@@ -60,6 +63,12 @@ api.get("/day/02", (req, res) => {
 api.get("/day/03", (req, res) => {
   const title = "AOC 2024 - Day 03";
   const results = day03Run();
+  res.send(template(formatResult(results), sidebar, title));
+});
+
+api.get("/day/06", (req, res) => {
+  const title = "AOC 2024 - Day 06";
+  const results = day06Run();
   res.send(template(formatResult(results), sidebar, title));
 });
 

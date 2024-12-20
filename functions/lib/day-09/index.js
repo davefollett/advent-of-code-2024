@@ -25,23 +25,34 @@ function lineParserFunc(inOutObject, line) {
     }
   }
 
-  const startBlocksReversed = [...inOutObject.startBlocks].reverse();
   inOutObject.finalBlocks = [...inOutObject.startBlocks];
 
-  for (const item of startBlocksReversed) {
-    if (item !== freeChar) {
-      let indexToMove = inOutObject.finalBlocks.findLastIndex((value) => value === item);
-      let indexToMoveTo = inOutObject.finalBlocks.findIndex((value) => value === freeChar);
-      // console.log(`Move value: ${item} from index: ${indexToMove} to index: ${indexToMoveTo}`)
-      inOutObject.finalBlocks.splice(indexToMoveTo, 1, item);
-      inOutObject.finalBlocks.splice(indexToMove, 1, freeChar);
+  let front = 0;
+  let back = inOutObject.finalBlocks.length - 1;
+  let done = false;
 
-      // stop looping if all the numbers are at the front
-      if (inOutObject.finalBlocks.join('').match(/^[0-9]*\.*$/)) {
-        break;
+  do {
+
+    while(inOutObject.finalBlocks[front] !== '.') {
+      front += 1;
+      if (front === back) {
+        done = true;
       }
     }
-  };
+
+    while(inOutObject.finalBlocks[back] === '.') {
+      back -= 1;
+      if (front === back) {
+        done = true;
+      }
+    }
+
+    if (!done) {
+      inOutObject.finalBlocks[front] = inOutObject.finalBlocks[back];
+      inOutObject.finalBlocks[back] = '.';
+    }
+
+  } while (!done);
 
   inOutObject.result = inOutObject.finalBlocks.reduce((accu, item, index) => {
     if( item !== freeChar) {
@@ -60,7 +71,6 @@ export function part1(filename) {
   };
   fileParserToObject(filename, input, lineParserFunc);
 
-  // console.log(input.finalBlocks.join(''))
   return input.result;
 }
 

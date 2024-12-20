@@ -6,7 +6,7 @@ const inputTest1Filename = __dirname + '/input-test-1.txt';
 
 describe('@/day-09/index.js', () => {
   describe('part1()', () => {
-    test.skip('part1 should pass', () => {
+    test('part1 should pass', () => {
       const answer = part1(inputFilename);
       expect(answer).toBe(6291146824486);
     });

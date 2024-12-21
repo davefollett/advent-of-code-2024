@@ -39,36 +39,46 @@ export function part1(filename) {
   return rocks.length;
 }
 
-// Invalid array length
 export function part2(filename) {
-  let rocks = fileToString(filename)
+  let rocks = {};
+
+  fileToString(filename)
     .split(' ')
     .map((item) => {
-      return parseInt(item, 10);
+      const key = parseInt(item,10);
+      rocks[key] = rocks[key] ? rocks[key] + 1 : 1;
     });
 
   for( let i = 0; i < 75; i += 1) {
-    let newRocks = [];
-    rocks.forEach((rock) => {
-      if( rock === 0) {
-        newRocks.push(1);
+    let newRocks = {};
+    for (const [key, count] of Object.entries(rocks)) {
+      const rock = parseInt(key, 10);
+      if (rock === 0) {
+        const newRock = 1;
+        newRocks[newRock] = count;
       } else if(isEven(numberOfDigits(rock))) {
         const { left, right } = splitRock(rock);
-        newRocks.push(left);
-        newRocks.push(right);
+        newRocks[left] = newRocks[left] ? newRocks[left] + count : count;
+        newRocks[right] = newRocks[right] ? newRocks[right] + count : count;
       } else {
-        newRocks.push(rock * 2024);
+        const newRock = rock * 2024;
+        newRocks[newRock] = count;
       }
-    });
+    }
     rocks = newRocks;
   }
 
-  return rocks.length;
+  let result = 0;
+  for (const [key, count] of Object.entries(rocks)) {
+    result += count;
+  }
+
+  return result;
 }
 
 export function run() {
-  const results = new Result('Day 11 - <i class="nes-icon is-medium star"></i>');
-  const inputFilename = __dirname + '/lib/day-09/input.txt';
+  const results = new Result('Day 11 - <i class="nes-icon is-medium star"></i><i class="nes-icon is-medium star"></i>');
+  const inputFilename = __dirname + '/lib/day-11/input.txt';
 
   let start = performance.now();
   results.part1.answer = part1(inputFilename);

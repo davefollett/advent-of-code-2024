@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { numberOfDigits, isEven, isOdd } from './number.js';
+import { numberOfDigits, isEven, isOdd, splitDigits } from './number.js';
 
 describe('@/utils/number.js', () => {
   describe('numberOfDigits()', () => {
@@ -39,6 +39,19 @@ describe('@/utils/number.js', () => {
       ${978}  | ${false}
     `('isOdd($num) should be $expected', ({ num, expected }) => {
       expect(isOdd(num)).toStrictEqual(expected);
+    });
+  });
+
+  describe('splitDigits()', () => {
+    test.each`
+      num     | expected
+      ${123456} | ${{ left: 123, right: 456 }}
+      ${12}     | ${{ left: 1, right: 2 }}
+      ${4209}   | ${{ left: 42, right: 9 }}
+      ${7800}   | ${{ left: 78, right: 0 }}
+      ${12345}  | ${{ left: null, right: null }}
+    `('splitDigits($num) should be $expected', ({ num, expected }) => {
+      expect(splitDigits(num)).toStrictEqual(expected);
     });
   });
 });

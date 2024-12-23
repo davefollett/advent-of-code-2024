@@ -4,6 +4,7 @@ import { performance } from 'node:perf_hooks';
 import Result from '#utils/result.js';
 import { fileToString } from '#lib/utils/file-parser.js';
 import { numberOfDigits, isEven } from '#lib/utils/number.js';
+import { sumNumbers } from '#lib/utils/array.js';
 
 function splitRock(rock) {
   const divisor =  Math.pow(10, numberOfDigits(rock) / 2);
@@ -13,6 +14,7 @@ function splitRock(rock) {
   return { left, right };
 }
 
+// Slow version, too slow for part 2
 export function part1(filename) {
   let rocks = fileToString(filename)
     .split(' ')
@@ -39,6 +41,7 @@ export function part1(filename) {
   return rocks.length;
 }
 
+// Fast version
 export function part2(filename) {
   let rocks = {};
 
@@ -68,10 +71,7 @@ export function part2(filename) {
     rocks = newRocks;
   }
 
-  let result = 0;
-  for (const [key, count] of Object.entries(rocks)) {
-    result += count;
-  }
+  const result = sumNumbers(Object.values(rocks));
 
   return result;
 }
@@ -85,7 +85,7 @@ export function run() {
   results.part1.time = (performance.now() - start).toFixed(2);
 
   start = performance.now();
-  results.part2.answer = part2(null);
+  results.part2.answer = part2(inputFilename);
   results.part2.time = (performance.now() - start).toFixed(2);
 
   return results;
